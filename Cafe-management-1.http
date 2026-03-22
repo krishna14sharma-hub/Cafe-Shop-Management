@@ -1,0 +1,6 @@
+@Cafe_management_1_HostAddress = http://localhost:5148
+
+GET {{Cafe_management_1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
