@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cafe_management_1.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Route("api/[controller]")] // street address 
+    [ApiController] // checking if the data is valid and converting JSON into C# objects
     public class MenuController : ControllerBase
     {
         [HttpGet]
