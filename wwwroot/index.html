@@ -1,110 +1,41 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Cafe Management System</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 30px;
-            background-color: #f4f1ee;
-        }
-
-        .pos-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .order-section {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .active-orders {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border-left: 5px solid #6f4e37;
-        }
-
-        select, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        button {
-            background-color: #6f4e37;
-            color: white;
-            border: none;
-            font-weight: bold;
-        }
-
-            button:hover {
-                background-color: #4b3526;
-            }
-
-        li {
-            list-style: none;
-            background: #eee;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .order-id {
-            font-weight: bold;
-            color: #6f4e37;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora Cafe | Artisan Experience</title>
+    <link rel="stylesheet" href="script.css">
 </head>
 <body>
 
-    <h1>☕ Cafe Management System</h1>
+    <header class="top-bar">
+        <div class="header-section logo">Agora Cafe</div>
 
-    <div class="pos-container">
-        <div class="order-section">
-            <h3>🍔 Meals</h3>
-            <label>Select Food:</label>
-            <select id="mealSelect">
-                <option value="Club Sandwich">Club Sandwich</option>
-                <option value="Cheese Burger">Cheese Burger</option>
-                <option value="Pasta Alfredo">Pasta Alfredo</option>
-                <option value="Avocado Toast">Avocado Toast</option>
-            </select>
-            <button onclick="placeOrder('mealSelect')">Order Meal</button>
+        <div class="header-section search-container">
+            <input type="text" placeholder="Search for coffee or meals..">
         </div>
 
-        <div class="order-section">
-            <h3>☕ Drinks</h3>
-            <label>Select Drink:</label>
-            <select id="drinkSelect">
-                <option value="Cappuccino">Cappuccino</option>
-                <option value="Iced Latte">Iced Latte</option>
-                <option value="Green Tea">Green Tea</option>
-                <option value="Espresso">Espresso</option>
-            </select>
-            <button onclick="placeOrder('drinkSelect')">Order Drink</button>
+        <div class="header-section utility-icons">
+            <span>🛒 <small id="cartCount">0</small></span>
+            <span>📅</span>
+            <span onclick="showLogin()" style="cursor:pointer">👤</span>
         </div>
-    </div>
+    </header>
 
-    <div class="active-orders">
-        <h2>🔥 Active Orders (Cooking...)</h2>
-        <ul id="ordersList">
-            <li>No orders loaded yet.</li>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#" onclick="renderHome()">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#gallery">GALLERY</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="#feedback">FEEDBACK</a></li>
         </ul>
-        <button onclick="getOrders()" style="width: auto; background-color: #888;">Refresh Status</button>
-    </div>
+    </nav>
+
+   
+
+    <main id="app">
+    </main>
 
     <script src="script.js"></script>
 </body>

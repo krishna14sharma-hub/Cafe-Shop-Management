@@ -1,90 +1,55 @@
-﻿//const API_URL = "https://localhost:7246/api/order";
-//// thsi are called action class [httpGet] , [httpPost]
-//let nextOrderId = 101; // starting Point
-//async function placeOrder() { // sending method
-//    const order = {
-//        id: nextOrderId++,
-//        itemName: "cappuccino",
-//        quantity: 2
-//    };
+﻿const cafeData = {
+    categories: ["Soft Drinks", "Shakes", "Other Drinks", "Continental", "Fast Food", "Desi Flavors"],
+    topSelling: [
+        { id: 1, name: "Espresso", price: 4.00 }, { id: 2, name: "Club Sandwich", price: 9.00 },
+        { id: 3, name: "Berry Shake", price: 6.50 }, { id: 4, name: "Beef Burger", price: 11.00 },
+        { id: 5, name: "Latte", price: 5.00 }, { id: 6, name: "Pasta", price: 13.00 },
+        { id: 7, name: "Mocktail", price: 7.00 }, { id: 8, name: "Brownie", price: 4.50 },
+        { id: 9, name: "Steak", price: 19.00 }
+    ]
+};
 
-//    const response = await fetch(API_URL, {
-//        method: "POST",
-//        headers: {
-//            "content-type": "application/json" // putting a label on the package
-//        },
-//        body: JSON.stringify(order) // shrink
-//    });
+function renderHome() {
+    const app = document.getElementById('app');
+    app.innerHTML = `
+        <section class="thoughts-wrapper">
+            <div class="thought-box">"A cup of coffee is a shared moment of peace."</div>
+            <div class="thought-box">"Fresh flavors, brewed daily for your soul."</div>
+        </section>
 
-//    if (response.ok) {
-//        getOrder(); // now that the order is save, refresh the list
-//    }
-//  }
-//   async function getOrder() { // showing method
-//      const response = await fetch(API_URL);
-//      const orderArray = await response.json(); // You are "Unboxing" the list of orders the server sent back
+         <section class="offers-wrapper">
+        <div class="offer-card promo-1" onclick="alert('Offer 1')">
+            Get 20% Off Coffee
+        </div>
+        <div class="offer-card promo-2" onclick="alert('Offer 2')">
+            Lunch Deal: Free Drink
+        </div>
+    </section>
 
-//      const list = document.getElementById("ordersList");
-//      list.innerHTML = ""; // You are clearing the screen so you don't show the same order twice
+        <h2 class="section-title">Feature Categories</h2>
+        <div class="category-grid">
+            ${cafeData.categories.map(cat => `<div class="card"><strong>${cat}</strong></div>`).join('')}
+        </div>
 
-//      orderArray.forEach(item => { // You are going through every "Unboxed" item one by one
-//          const li = document.createElement("li"); // You are creating a new bullet point for each item.
-//          li.textContent = `${item.itemName} - ${item.quantity}`;
-//          list.appendChild(li); // You are physically sticking that bullet point onto your web page.
-//      });
-//}
+        
 
+        <h2 class="section-title">Top Selling Items</h2>
+        <div class="product-grid">
+            ${cafeData.topSelling.map(item => `
+                <div class="card">
+                    <div style="height:100px; background:#ddd; margin-bottom:10px">IMAGE</div>
+                    <h4>${item.name}</h4>
+                    <p>$${item.price.toFixed(2)}</p>
+                    <button onclick="alert('Added!')">Add to Cart</button>
+                </div>
+            `).join('')}
+        </div>
 
-
-// ------------------------------------------------------------------------------------
-
-
-
-
-const API_URL = "https://localhost:7246/api/order";
-
-// We pass the 'id' of the select box as a parameter
-async function placeOrder(selectId) {
-    const selectedItem = document.getElementById(selectId).value;
-
-    const newOrder = {
-        // You are achieving a unique number by using the current timestamp
-        id: Date.now() % 10000,
-        itemName: selectedItem,
-        quantity: 1
-    };
-
-    const response = await fetch(API_URL, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(newOrder)
-    });
-
-    if (response.ok) {
-        getOrders(); // Refresh the list automatically
-    }
+        <section id="about" class="info-section"><h2>About</h2><p>Our story starts in 1995...</p></section>
+        <section id="gallery" class="info-section"><h2>Gallery</h2><p>Images coming soon...</p></section>
+        <section id="contact" class="info-section"><h2>Contact</h2><p>123 Cafe Lane, City</p></section>
+        <section id="feedback" class="info-section"><h2>Feedback</h2><p>Tell us your thoughts!</p></section>
+    `;
 }
 
-async function getOrders() {
-    const response = await fetch(API_URL);
-    const orders = await response.json();
-
-    const list = document.getElementById("ordersList");
-
-    // Check if there are any orders to achieve the 'no order loaded' logic
-    if (orders.length === 0) {
-        list.innerHTML = "<li>No orders loaded yet.</li>";
-        return;
-    }
-
-    list.innerHTML = "";
-    orders.forEach(item => {
-        const li = document.createElement("li");
-        // We add a 'Cooking' status visually
-        li.innerHTML = `
-            <span><span class="order-id">#${item.id}</span> - ${item.itemName}</span>
-            <span style="color: orange; font-style: italic;">🍳 Cooking...</span>
-        `;
-        list.appendChild(li);
-    });
-}
+window.onload = renderHome;
