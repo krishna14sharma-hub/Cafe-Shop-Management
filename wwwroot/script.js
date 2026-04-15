@@ -2,8 +2,7 @@
     const app = document.getElementById('app');
 
     try {
-        // FIX 1: The URL must point to the specific controller /api/menu
-        const response = await fetch('http://localhost:7246/api/menu');
+        const response = await fetch('https://localhost:7246/api/menu');
         const csharpMenu = await response.json();
 
         const categories = ["Soft Drinks", "Shakes", "Other Drinks", "Continental", "Fast Food", "Desi Flavors"];
@@ -32,7 +31,6 @@
     }
 }
 
-// FIX 3: Corrected the spelling of 'function' and 'const'
 async function placeOrder(productName) {
     const orderData = {
         name: productName,
@@ -43,7 +41,7 @@ async function placeOrder(productName) {
         const response = await fetch('http://localhost:7246/api/order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderData) // You were missing the body!
+            body: JSON.stringify(orderData) 
         });
 
         const result = await response.text();
