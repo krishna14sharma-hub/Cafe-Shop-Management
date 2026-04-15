@@ -38,14 +38,17 @@ async function placeOrder(productName) {
     };
 
     try {
-        const response = await fetch('http://localhost:7246/api/order', {
+        const response = await fetch('https://localhost:7246/api/order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderData) 
         });
 
         const result = await response.text();
-        alert(result); // This will show "Order Placed Successfully"
+        alert(result);
+        const cartCountElement = document.getElementById('cartCount');
+        let currentCount = parseInt(cartCountElement.innerText);
+        cartCountElement.innerText = currentCount + 1;
     } catch (error) {
         alert("Failed to send order to server.");
     }
