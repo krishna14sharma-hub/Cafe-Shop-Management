@@ -3,8 +3,11 @@
     public class Order
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public int MenuItemId { get; set; } // foreign key to MenuItem
         public int Quantity { get; set; }
-        
+
+        public DateTime OrderDate { get; set; } = DateTime.Now;
+
+
     }
 }
