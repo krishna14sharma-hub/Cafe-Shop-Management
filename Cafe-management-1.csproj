@@ -10,7 +10,7 @@
   <ItemGroup>
     <None Include="wwwroot\index.html" />
     <None Include="wwwroot\script.css" />
-    <None Include="wwwroot\script.js" />
+    <None Include="wwwroot\js\main.js" />
   </ItemGroup>
 
   <ItemGroup>

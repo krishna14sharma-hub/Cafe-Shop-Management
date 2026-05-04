@@ -45,9 +45,10 @@ namespace Cafe_management_1.Controllers
             if (order.Quantity <= 0) return BadRequest("It's a empty order");
 
             _context.Orders.Add(order); // waiting room 
-            order.OrderDate = DateTime.Now; 
+        //    order.OrderDate = DateTime.Now; 
             _context.SaveChanges(); // trigger room 
             return Ok(new { message = "Order added successfully!" });
+        
         }
     }
 }

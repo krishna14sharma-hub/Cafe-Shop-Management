@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agora Cafe | Artisan Experience</title>
+    <!-- Font Awesome for Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to your CSS file -->
     <link rel="stylesheet" href="script.css">
 </head>
 <body>
 
     <header class="top-bar">
-        <div class="header-section logo">Agora Cafe</div>
-
-        <div class="header-section search-container">
+        <div class="logo">Agora Cafe</div>
+        <div class="search-container">
             <input type="text" placeholder="Search for coffee or meals..">
         </div>
-
-        <div class="header-section utility-icons">
-            <span>🛒 <small id="cartCount">0</small></span>
-            <span>📅</span>
-            <span onclick="showLogin()" style="cursor:pointer">👤</span>
+        <div class="utility-icons">
+            <!-- Professional Icons with IDs for JS Logic -->
+            <span id="theme-btn" style="cursor:pointer"><i class="fa-solid fa-moon"></i></span>
+            <span style="position:relative; cursor:pointer">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <small id="cartCount">0</small>
+            </span>
+            <span><i class="fa-solid fa-calendar-days"></i></span>
+            <span style="cursor:pointer"><i class="fa-solid fa-user"></i></span>
         </div>
     </header>
 
     <nav class="main-nav">
-        <ul>
-            <li><a href="#" onclick="renderHome()">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#gallery">GALLERY</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-            <li><a href="#feedback">FEEDBACK</a></li>
+        <ul class="nav-links">
+            <!-- ADD THIS CLASS HERE -->
+            <li><a href="#" data-page="home">HOME</a></li>
+            <li><a href="#gallery" data-page="gallery">GALLERY</a></li>
+            <li><a href="#feedback" data-page="feedback">FEEDBACK</a></li>
+            <li><a href="#about" data-page="about">ABOUT</a></li>
+            <li><a href="#contact" data-page="contact">CONTACT</a></li>
         </ul>
     </nav>
 
-    <main id="app">
-    </main>
+    <!-- The target for your JavaScript injection -->
+    <main id="app"></main>
 
-    <script src="script.js"></script>
+    <!-- Entry point for your modular JS -->
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
