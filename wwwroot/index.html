@@ -4,33 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agora Cafe | Artisan Experience</title>
-    <!-- Font Awesome for Professional Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="script.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="script.css?v=2.0">
 </head>
 <body>
-
     <header class="top-bar">
         <div class="logo">Agora Cafe</div>
         <div class="search-container">
             <input type="text" placeholder="Search for coffee or meals..">
         </div>
         <div class="utility-icons">
-            <!-- Professional Icons with IDs for JS Logic -->
-            <span id="theme-btn" style="cursor:pointer"><i class="fa-solid fa-moon"></i></span>
-            <span style="position:relative; cursor:pointer">
+            <span id="theme-btn" class="icon-wrapper"><i class="fa-solid fa-moon"></i></span>
+            <span class="icon-wrapper cart-container">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <small id="cartCount">0</small>
             </span>
-            <span><i class="fa-solid fa-calendar-days"></i></span>
-            <span style="cursor:pointer"><i class="fa-solid fa-user"></i></span>
+            <span class="icon-wrapper"><i class="fa-solid fa-calendar-days"></i></span>
+            <span class="icon-wrapper"><i class="fa-solid fa-user"></i></span>
         </div>
     </header>
 
     <nav class="main-nav">
         <ul class="nav-links">
-            <!-- ADD THIS CLASS HERE -->
             <li><a href="#" data-page="home">HOME</a></li>
             <li><a href="#gallery" data-page="gallery">GALLERY</a></li>
             <li><a href="#feedback" data-page="feedback">FEEDBACK</a></li>
@@ -39,10 +35,8 @@
         </ul>
     </nav>
 
-    <!-- The target for your JavaScript injection -->
     <main id="app"></main>
 
-    <!-- Entry point for your modular JS -->
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>

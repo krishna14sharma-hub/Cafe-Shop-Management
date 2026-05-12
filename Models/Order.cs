@@ -3,11 +3,11 @@
     public class Order
     {
         public int Id { get; set; }
-        public int MenuItemId { get; set; } // foreign key to MenuItem
+        public int MenuItemId { get; set; }
         public int Quantity { get; set; }
+        public DateTime OrderDate { get; set; }
 
-        public DateTime OrderDate { get; set; } = DateTime.Now;
-
-
+        // Logic: Adding the missing link between the cart and the database
+        public string CustomerName { get; set; } = "Anonymous";
     }
 }
